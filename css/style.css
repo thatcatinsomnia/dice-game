@@ -1,0 +1,260 @@
+:root{
+    --color-primary: #254158;
+    --color-secondary: #88bdbc;
+    --color-white-1: #f5f3ef;
+    --color-white-2: #e7dddd;
+
+    --color-red: #f85353;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-image: radial-gradient(var(--color-secondary), var(--color-primary));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    height: 80%;
+    width: 60%;
+    background-color: var(--color-white-1);
+    box-shadow: 0 2rem 4rem rgba(0,0,0,.4);
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+}
+
+.player-0-panel,
+.player-1-panel {
+    flex: 0 0 50%;
+    padding: 10rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.active {
+    background-color: var(--color-white-2);
+}
+
+.winner {
+    background-color: var(--color-white-2);
+}
+
+.winner .player-name {
+    transform: scale(1.3);
+    font-weight: 600;
+    color: var(--color-red);
+}
+
+.player-name {
+    font-size: 5rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.active .player-name::after {
+    content: "\2190";
+    font-size: 5rem;
+    color: var(--color-red);
+
+    position: absolute;
+    margin-top: -.3rem;
+    right: -5rem;
+}
+
+.player-score {
+    font-size: 8rem;
+    letter-spacing: 4px;
+    margin-bottom: auto;
+    color: var(--color-red);
+}
+
+.player-current-box {
+    font-size: 2.5rem;
+    background-color: var(--color-red);
+    padding: .5rem 2.5rem;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-current-label {
+    margin-bottom: 1rem;
+}
+
+.player-current-score {
+    color: var(--color-white-2);
+}
+
+.button-box {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20rem;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+button {
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    padding: .5rem 1rem;
+    font-size: 2rem;
+    width: 80%;
+    background-color: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-new { 
+    margin-top: 5rem;
+    margin-bottom: auto;
+}
+
+.btn-roll {
+    margin-bottom: 1.5rem;
+}
+
+.btn-hold {
+    margin-bottom: 10rem;
+}
+
+i {
+    color: var(--color-red);
+    display: inline-block;
+    font-size: 3rem;
+    vertical-align: center;
+    margin-right: 1rem;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    transform: translateY(.25rem);
+}
+
+button:hover {
+    font-weight: 600;
+}
+
+.btn-roll:hover i {
+    animation: rotateImg 1s linear infinite;
+}
+
+.btn-new:hover i,
+.btn-hold:hover i {
+    animation: scaleImg 1s linear infinite;
+}
+
+
+button:hover span {
+    animation: moveLeftRight 1s linear infinite;
+}
+
+.final-score {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    font-family: "Source Sans Pro";
+    text-align: center;
+    color: #555;
+    padding: .5rem 1rem;
+    text-transform: uppercase;
+    width: 20rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.final-score:focus {
+    outline: none;
+}
+
+.dice {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+    height: 8rem;
+}
+
+#dice-0 {
+    top: 25%;
+}
+
+#dice-1 {
+    top: 40%;
+}
+
+@keyframes rotateImg {
+    0% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scaleImg {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes moveLeftRight{
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
